@@ -1,0 +1,83 @@
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else {
+		var a = factory();
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(this, () => {
+return /******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ 10:
+/***/ ((module) => {
+
+function EncodeCPF(type, value) {
+  if (type === "cpf") {
+    let cpf = value;
+
+    let first = cpf.slice(0, 2).concat(cpf[2].concat("."));
+
+    let second = cpf.slice(3, 5).concat(cpf[5].concat("."));
+
+    let third = cpf.slice(6, 8).concat(cpf[8].concat("-"));
+
+    let four = cpf.slice(9, 11);
+
+    const response = first + second + third + four;
+
+    return response;
+  }
+}
+
+function DecodeCPF(value) {
+  return value.replace(".", "").replace(".", "").replace("-", "").trim();
+}
+
+module.exports = {
+  EncodeCPF,
+  DecodeCPF,
+};
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	var __webpack_exports__ = __webpack_require__(10);
+/******/ 	
+/******/ 	return __webpack_exports__;
+/******/ })()
+;
+});
